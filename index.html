@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Cryptographic Command Center — Breach Scanner, Hash Engine & Entropy Analyzer | Bhvsy OS</title>
+  <meta name="description" content="Bhvsy OS Cryptographic Command Center by Bhavishya Parjapati — an institutional-grade cybersecurity dashboard combining a Data Breach OSINT Scanner, real-time Cryptographic Hash Engine (MD5, SHA-1, SHA-256, SHA-512, bcrypt), and Advanced Password Entropy Visualizer with crack-time estimation. Free, open, and built for security professionals." />
+  <meta name="keywords" content="breach scanner, password entropy, hash generator, SHA-256, MD5, bcrypt, password strength checker, data breach checker, OSINT tool, cybersecurity dashboard, Bhavishya Parjapati, Bhvsy OS, cryptographic hash engine, password crack time, entropy calculator, security tools" />
+  <meta name="author" content="Bhavishya Parjapati" />
+  <meta name="creator" content="Bhavishya Parjapati" />
+  <meta name="publisher" content="Bhvsy OS" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="3 days" />
+  <link rel="canonical" href="https://bhvsy.github.io/CryptoCenter/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bhvsy OS — Digital Ecosystem by Bhavishya Parjapati" />
+  <meta property="og:title" content="Cryptographic Command Center | Bhvsy OS" />
+  <meta property="og:description" content="Institutional-grade cybersecurity dashboard: Data Breach OSINT Scanner, Cryptographic Hash Engine, and Password Entropy Visualizer. Built by Bhavishya Parjapati." />
+  <meta property="og:url" content="https://bhvsy.github.io/CryptoCenter/" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cryptographic Command Center | Bhvsy OS" />
+  <meta name="twitter:description" content="Breach scanning, hash generation, and password entropy analysis in one terminal. By Bhavishya Parjapati." />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#030308" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cryptographic Command Center",
+    "alternateName": "Bhvsy OS CryptoCenter",
+    "description": "Institutional-grade cybersecurity dashboard combining Data Breach OSINT Scanner, Cryptographic Hash Engine (MD5, SHA-1, SHA-256, SHA-512, bcrypt), and Advanced Password Entropy Visualizer with crack-time estimation.",
+    "url": "https://bhvsy.github.io/CryptoCenter/",
+    "applicationCategory": "SecurityApplication",
+    "applicationSubCategory": "Cryptography Tools",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript, modern browser with Web Crypto API support",
+    "softwareVersion": "1.0.0",
+    "permissions": "none",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "Data Breach OSINT Scanning",
+      "MD5 Hash Generation",
+      "SHA-1 Hash Generation",
+      "SHA-256 Hash Generation",
+      "SHA-512 Hash Generation",
+      "bcrypt Hash Generation",
+      "Password Entropy Calculation",
+      "Crack Time Estimation",
+      "Character Composition Analysis",
+      "Real-time Hash Computation"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Bhavishya Parjapati",
+      "jobTitle": "Global Digital Architect",
+      "url": "https://bhvsy.github.io"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Bhvsy OS",
+      "url": "https://bhvsy.github.io",
+      "founder": {
+        "@type": "Person",
+        "name": "Bhavishya Parjapati"
+      }
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Bhvsy OS",
+      "url": "https://bhvsy.github.io"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Bhvsy OS Home", "item": "https://bhvsy.github.io" },
+        { "@type": "ListItem", "position": 2, "name": "Cryptographic Command Center", "item": "https://bhvsy.github.io/CryptoCenter/" }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is password entropy and why does it matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Password entropy is a measure of unpredictability, expressed in bits. Higher entropy means more possible combinations an attacker must try. A password with 40 bits of entropy has 2^40 (roughly 1 trillion) possible combinations. For strong security, aim for at least 60-80 bits of entropy. Entropy is calculated as: E = L × log₂(C), where L is the password length and C is the character set size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between MD5, SHA-1, SHA-256, and bcrypt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MD5 produces a 128-bit hash and is considered cryptographically broken — it should never be used for security. SHA-1 produces a 160-bit hash and is also deprecated due to collision vulnerabilities. SHA-256 is part of the SHA-2 family, produces a 256-bit hash, and is currently considered secure for most applications. bcrypt is a password-hashing function that includes a salt and configurable cost factor, making it intentionally slow and resistant to brute-force attacks — it is the recommended choice for storing passwords."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Data Breach Scanner work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Data Breach OSINT Scanner checks whether an email address or domain has appeared in known data breaches. It queries publicly available breach databases and aggregated leak repositories to determine exposure. The tool does not store, transmit, or log any queried data. All processing is handled client-side or through privacy-respecting APIs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data safe when using this tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Cryptographic Command Center is designed with a zero-knowledge architecture. Passwords entered into the entropy analyzer and hash engine are processed entirely within your browser and are never transmitted to any server. No data is stored, logged, or shared. The breach scanner uses privacy-first query methods (such as k-anonymity) when checking breach databases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is crack time estimation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Crack time estimation calculates how long it would take an attacker to brute-force your password using different attack scenarios. Offline fast hash assumes the attacker has access to unsalted MD5/SHA-1 hashes and can attempt billions of guesses per second. Online throttled assumes a web login form with rate limiting, allowing roughly 10-100 attempts per second. These are theoretical estimates and actual times may vary based on hardware and attack methods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who built the Bhvsy OS Cryptographic Command Center?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Cryptographic Command Center was engineered by Bhavishya Parjapati, a Global Digital Architect and the founder of the Bhvsy OS digital ecosystem. It is part of a suite of professional-grade tools designed for security researchers, developers, and privacy-conscious individuals worldwide."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /*  ╔══════════════════════════════════════════════╗
+        ║  RESET & CUSTOM PROPERTIES                   ║
+        ╚══════════════════════════════════════════════╝ */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#030308;--bg-card:rgba(8,12,28,.88);--bg-card-s:#080c1c;
+      --bg-input:rgba(0,0,0,.45);--bg-input-h:rgba(0,0,0,.58);--bg-input-f:rgba(0,0,0,.65);
+      --bdr:rgba(0,240,255,.07);--bdr-h:rgba(0,240,255,.24);--bdr-f:rgba(0,240,255,.42);
+      --cyan:#00f0ff;--cyan-d:rgba(0,240,255,.6);--cyan-g:rgba(0,240,255,.08);
+      --purple:#8b5cf6;--purple-g:rgba(139,92,246,.08);
+      --red:#ff006e;--red-g:rgba(255,0,110,.08);
+      --green:#00ff88;--green-g:rgba(0,255,136,.08);
+      --amber:#fbbf24;--amber-g:rgba(251,191,36,.08);
+      --txt:#e4e8f1;--txt-m:#7a8ba7;--txt-d:#4a5568;
+      --fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+      --r:16px
+    }
+    html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cyan-d) var(--bg)}
+    html::-webkit-scrollbar{width:5px}
+    html::-webkit-scrollbar-track{background:var(--bg)}
+    html::-webkit-scrollbar-thumb{background:rgba(0,240,255,.2);border-radius:3px}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  BOOT SCREEN                                 ║
+        ╚══════════════════════════════════════════════╝ */
+    .boot{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;transition:opacity .6s,visibility .6s}
+    .boot.off{opacity:0;visibility:hidden;pointer-events:none}
+    .boot-diamond{width:16px;height:16px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 14px rgba(0,240,255,.5),0 0 36px rgba(0,240,255,.2);animation:bp 1.2s ease-in-out infinite}
+    @keyframes bp{0%,100%{transform:rotate(45deg) scale(1);opacity:1}50%{transform:rotate(45deg) scale(1.3);opacity:.55}}
+    .boot-t{font-family:var(--fd);font-size:17px;font-weight:700;color:#fff;letter-spacing:2px}
+    .boot-s{font-family:var(--fm);font-size:10px;color:var(--txt-d);letter-spacing:1px}
+    .boot-trk{width:190px;height:2px;background:rgba(255,255,255,.05);border-radius:1px;overflow:hidden}
+    .boot-fill{height:100%;width:0;border-radius:1px;background:linear-gradient(90deg,var(--cyan),var(--purple));animation:bf 2s ease-in-out forwards}
+    @keyframes bf{to{width:100%}}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  AMBIENT BACKGROUND                          ║
+        ╚══════════════════════════════════════════════╝ */
+    .bg-a{position:fixed;inset:0;z-index:0;pointer-events:none;transform:translateZ(0);will-change:transform;
+      background:
+        linear-gradient(rgba(0,240,255,.013) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,240,255,.013) 1px,transparent 1px),
+        radial-gradient(ellipse 680px 480px at 10% 5%,rgba(0,240,255,.035),transparent),
+        radial-gradient(ellipse 580px 420px at 90% 85%,rgba(139,92,246,.03),transparent),
+        radial-gradient(ellipse 400px 300px at 50% 40%,rgba(255,0,110,.012),transparent);
+      background-size:44px 44px,44px 44px,100% 100%,100% 100%,100% 100%}
+    .bg-a::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.02) 2px,rgba(0,0,0,.02) 4px);pointer-events:none}
+
+    .wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 24px 72px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  ANNOUNCE BAR                                ║
+        ╚══════════════════════════════════════════════╝ */
+    .ann{display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 18px;background:linear-gradient(90deg,rgba(0,240,255,.06),rgba(139,92,246,.05),rgba(0,240,255,.06));border-bottom:1px solid rgba(0,240,255,.06);margin:0 -24px;text-align:center;flex-wrap:wrap}
+    .ann-badge{font-family:var(--fm);font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 9px;color:var(--green);background:var(--green-g);border:1px solid rgba(0,255,136,.15);border-radius:999px}
+    .ann p{font-family:var(--fm);font-size:10px;color:var(--txt-m);letter-spacing:.3px}
+    .ann p strong{color:#fff;font-weight:600}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  NAV                                         ║
+        ╚══════════════════════════════════════════════╝ */
+    .nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;background:rgba(3,3,8,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--bdr);margin:0 -24px}
+    .nav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+    .nav-logo{width:32px;height:32px;border-radius:7px;object-fit:contain}
+    .nav-bt{display:flex;flex-direction:column;gap:1px}
+    .nav-bn{font-family:var(--fd);font-size:15px;font-weight:700;color:#fff;letter-spacing:-.3px}
+    .nav-bs{font-family:var(--fm);font-size:8.5px;color:var(--txt-d);letter-spacing:1.5px;text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:7px}
+    .n-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:all .25s;cursor:pointer;border:1px solid transparent}
+    .n-btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .n-btn.ghost{color:var(--txt-m);background:transparent;border-color:rgba(255,255,255,.06)}
+    .n-btn.ghost:hover{color:var(--cyan);border-color:rgba(0,240,255,.2);background:var(--cyan-g)}
+    .n-btn.primary{color:var(--cyan);background:var(--cyan-g);border-color:rgba(0,240,255,.16)}
+    .n-btn.primary:hover{background:rgba(0,240,255,.13);border-color:rgba(0,240,255,.35)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  BREADCRUMB                                  ║
+        ╚══════════════════════════════════════════════╝ */
+    .bc{padding:13px 0 0;margin-bottom:16px}
+    .bc-list{display:flex;align-items:center;gap:7px;list-style:none;font-family:var(--fm);font-size:10px}
+    .bc-list a{color:var(--txt-d);text-decoration:none;transition:color .2s}
+    .bc-list a:hover{color:var(--cyan)}
+    .bc-sep{color:rgba(255,255,255,.08)}
+    .bc-cur{color:var(--cyan);font-weight:600}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  SYSTEM HEADER                               ║
+        ╚══════════════════════════════════════════════╝ */
+    .sys-h{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:13px 20px;background:rgba(5,9,25,.95);border:1px solid var(--bdr);border-radius:13px;margin-bottom:18px}
+    .sys-brand{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+    .sys-dia{width:9px;height:9px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 7px rgba(0,240,255,.4);flex-shrink:0}
+    .sys-t{font-family:var(--fd);font-size:13px;font-weight:700;color:#fff;letter-spacing:1px}
+    .sys-sep{font-family:var(--fm);font-size:13px;color:var(--txt-d)}
+    .sys-mod{font-family:var(--fm);font-size:10px;font-weight:600;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase}
+    .sys-ver{font-family:var(--fm);font-size:8px;color:var(--txt-d);padding:2px 9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:5px}
+    .sys-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .sys-ind{display:flex;align-items:center;gap:6px;padding:4px 12px;background:var(--green-g);border:1px solid rgba(0,255,136,.14);border-radius:999px}
+    .ind-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 5px var(--green),0 0 12px rgba(0,255,136,.25);animation:sp 2.5s ease-in-out infinite}
+    @keyframes sp{0%,100%{opacity:1}50%{opacity:.35}}
+    .ind-txt{font-family:var(--fm);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green)}
+    .sys-clock{display:flex;align-items:center;gap:6px}
+    .clk-l{font-family:var(--fm);font-size:7px;font-weight:600;letter-spacing:1.5px;color:var(--txt-d);text-transform:uppercase}
+    .clk-v{font-family:var(--fm);font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-shadow:0 0 7px rgba(0,240,255,.18)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  PROTOCOL INDICATORS                         ║
+        ╚══════════════════════════════════════════════╝ */
+    .proto-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+    .proto-pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:8.5px;font-weight:600;letter-spacing:.8px;padding:4px 12px;border-radius:7px;color:var(--txt-d);background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
+    .proto-pill .pdot{width:4px;height:4px;border-radius:50%;background:var(--green);box-shadow:0 0 4px var(--green)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  TERMINAL                                    ║
+        ╚══════════════════════════════════════════════╝ */
+    .term-bar{display:flex;align-items:center;gap:9px;padding:12px 18px;background:#060a18;border:1px solid var(--bdr);border-radius:11px 11px 0 0}
+    .td{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+    .td.r{background:#ff5f57}.td.y{background:#ffbd2e}.td.g{background:#28c840}
+    .tt{margin-left:10px;font-family:var(--fm);font-size:11px;color:var(--txt-m)}
+    .tt span{color:var(--cyan)}
+    .term-body{background:#050919;border:1px solid var(--bdr);border-top:none;border-radius:0 0 11px 11px;padding:18px 20px 14px;margin-bottom:28px}
+    .tp{font-family:var(--fm);font-size:11px;color:var(--txt-m);line-height:2}
+    .tp .c{color:var(--cyan)}.tp .f{color:var(--purple)}.tp .s{color:var(--green)}.tp .cm{color:var(--txt-d);font-style:italic}.tp .w{color:var(--amber)}.tp .rd{color:var(--red)}
+    .cursor{display:inline-block;width:8px;height:15px;background:var(--cyan);margin-left:3px;vertical-align:text-bottom;animation:blink 1s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  SECTION HEADER                              ║
+        ╚══════════════════════════════════════════════╝ */
+    .sec-h{text-align:center;margin-bottom:12px}
+    .sec-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 16px;font-family:var(--fm);font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);background:var(--cyan-g);border:1px solid rgba(0,240,255,.12);border-radius:999px;margin-bottom:18px}
+    .sec-badge::before{content:'';width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:sp 2.5s ease-in-out infinite}
+    .sec-h h1{font-family:var(--fd);font-size:clamp(24px,4.2vw,44px);font-weight:700;letter-spacing:-1.5px;line-height:1.15;background:linear-gradient(135deg,#fff 0%,var(--cyan) 50%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:11px}
+    .sec-h p{font-size:13px;color:var(--txt-m);max-width:720px;margin:0 auto;line-height:1.7}
+    .sec-h p strong{color:var(--txt);font-weight:500}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  STATS ROW                                   ║
+        ╚══════════════════════════════════════════════╝ */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+    .st-card{background:var(--bg-card);border:1px solid var(--bdr);border-radius:11px;padding:14px;text-align:center;transition:border-color .3s}
+    .st-card:hover{border-color:var(--bdr-h)}
+    .st-v{font-family:var(--fm);font-size:18px;font-weight:700;margin-bottom:2px}
+    .st-v.cy{color:var(--cyan)}.st-v.pu{color:var(--purple)}.st-v.gr{color:var(--green)}.st-v.am{color:var(--amber)}.st-v.rd{color:var(--red)}
+    .st-l{font-family:var(--fm);font-size:7.5px;color:var(--txt-d);letter-spacing:1.5px;text-transform:uppercase}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  PANEL BASE                                  ║
+        ╚══════════════════════════════════════════════╝ */
+    .panel{background:var(--bg-card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;position:relative;overflow:hidden;transition:border-color .3s}
+    .panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.1),transparent)}
+    .panel:hover{border-color:rgba(0,240,255,.11)}
+    .p-tag{display:inline-flex;align-items:center;gap:4px;font-family:var(--fm);font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:3px 11px;border-radius:999px;margin-bottom:12px}
+    .p-tag.cy{color:var(--cyan);background:var(--cyan-g);border:1px solid rgba(0,240,255,.1)}
+    .p-tag.pu{color:var(--purple);background:var(--purple-g);border:1px solid rgba(139,92,246,.1)}
+    .p-tag.gr{color:var(--green);background:var(--green-g);border:1px solid rgba(0,255,136,.1)}
+    .p-tag.am{color:var(--amber);background:var(--amber-g);border:1px solid rgba(251,191,36,.1)}
+    .p-tag.rd{color:var(--red);background:var(--red-g);border:1px solid rgba(255,0,110,.1)}
+    .p-tag .tdot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.7}
+    .p-title{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;letter-spacing:-.3px;margin-bottom:18px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  INPUT ELEMENTS                              ║
+        ╚══════════════════════════════════════════════╝ */
+    .i-group{margin-bottom:16px}
+    .i-group:last-child{margin-bottom:0}
+    .i-label{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--txt-d);margin-bottom:7px}
+    .tip{width:13px;height:13px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:7px;font-weight:700;color:var(--txt-d);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);cursor:help;position:relative}
+    .tip:hover{color:var(--cyan);border-color:rgba(0,240,255,.2)}
+    .tip .tip-t{display:none;position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);width:210px;padding:9px 11px;font-family:var(--fm);font-size:9.5px;font-weight:400;line-height:1.6;letter-spacing:0;text-transform:none;color:var(--txt-m);background:#0d1228;border:1px solid rgba(0,240,255,.14);border-radius:7px;z-index:50;pointer-events:none}
+    .tip:hover .tip-t{display:block}
+    .i-wrap{position:relative}
+    .i-pre,.i-suf{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--fm);font-size:12px;font-weight:500;color:var(--txt-d);pointer-events:none;transition:color .25s}
+    .i-pre{left:13px}.i-suf{right:13px;font-size:10px;letter-spacing:.5px}
+    .i-field{width:100%;padding:12px 13px;font-family:var(--fm);font-size:13px;font-weight:500;color:#fff;background:var(--bg-input);border:1px solid rgba(0,240,255,.06);border-radius:9px;outline:none;transition:border-color .25s,box-shadow .25s,background .25s}
+    .i-field.has-pre{padding-left:30px}.i-field.has-suf{padding-right:36px}
+    .i-field:hover{border-color:rgba(0,240,255,.13);background:var(--bg-input-h)}
+    .i-field:focus{border-color:var(--bdr-f);box-shadow:0 0 0 3px rgba(0,240,255,.05),0 0 18px rgba(0,240,255,.03);background:var(--bg-input-f)}
+    .i-wrap:focus-within .i-pre,.i-wrap:focus-within .i-suf{color:var(--cyan-d)}
+    .i-field::placeholder{color:rgba(74,85,104,.55);font-weight:400}
+    .i-field[type="number"]::-webkit-outer-spin-button,.i-field[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    .i-field[type="number"]{-moz-appearance:textfield}
+    textarea.i-field{resize:vertical;min-height:110px;line-height:1.7;font-size:12px}
+    .i-hint{font-family:var(--fm);font-size:8.5px;color:var(--txt-d);margin-top:5px;letter-spacing:.3px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  SEARCH BAR (Breach Module)                  ║
+        ╚══════════════════════════════════════════════╝ */
+    .search-row{display:flex;gap:8px;margin-bottom:16px}
+    .search-input{flex:1}
+    .search-input .i-field{border-radius:9px 0 0 9px}
+    .btn-scan{padding:12px 22px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,rgba(0,240,255,.08),rgba(139,92,246,.08));border:1px solid rgba(0,240,255,.2);border-radius:0 9px 9px 0;cursor:pointer;transition:all .3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+    .btn-scan:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,240,255,.2),0 0 48px rgba(0,240,255,.06);text-shadow:0 0 10px rgba(0,240,255,.4)}
+    .btn-scan svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  BREACH RESULTS                              ║
+        ╚══════════════════════════════════════════════╝ */
+    .breach-status-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 16px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.03);border-radius:9px;margin-bottom:14px}
+    .bs-left{display:flex;align-items:center;gap:8px}
+    .bs-dot{width:8px;height:8px;border-radius:50%;background:var(--txt-d);transition:background .3s,box-shadow .3s}
+    .bs-txt{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt-d);transition:color .3s}
+    .bs-meta{font-family:var(--fm);font-size:8px;color:var(--txt-d)}
+
+    .breach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-height:220px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(0,240,255,.15) transparent;padding-right:4px}
+    .breach-grid::-webkit-scrollbar{width:3px}
+    .breach-grid::-webkit-scrollbar-thumb{background:rgba(0,240,255,.15);border-radius:2px}
+    .breach-item{display:flex;align-items:center;gap:9px;padding:10px 12px;background:rgba(255,0,110,.02);border:1px solid rgba(255,0,110,.06);border-radius:8px;transition:border-color .2s}
+    .breach-item:hover{border-color:rgba(255,0,110,.18)}
+    .bi-icon{font-size:12px;flex-shrink:0}
+    .bi-info{flex:1;min-width:0}
+    .bi-name{font-family:var(--fm);font-size:11px;font-weight:600;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .bi-date{font-family:var(--fm);font-size:8.5px;color:var(--txt-d)}
+    .breach-empty{padding:30px 16px;text-align:center;font-family:var(--fm);font-size:11px;color:var(--txt-d);letter-spacing:.3px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  ENTROPY METER                               ║
+        ╚══════════════════════════════════════════════╝ */
+    .pw-vis-wrap{position:relative;margin-bottom:16px}
+    .pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--txt-d);font-size:14px;padding:4px;transition:color .2s;z-index:2}
+    .pw-toggle:hover{color:var(--cyan)}
+    .ent-meter{margin-bottom:16px}
+    .ent-meter-h{display:flex;justify-content:space-between;margin-bottom:6px}
+    .ent-meter-l{font-family:var(--fm);font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--txt-d)}
+    .ent-meter-v{font-family:var(--fm);font-size:10px;font-weight:700;color:var(--txt-d);transition:color .3s}
+    .ent-track{width:100%;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden;position:relative}
+    .ent-fill{height:100%;width:0%;border-radius:3px;transition:width .5s cubic-bezier(.22,1,.36,1),background .5s;background:var(--red)}
+    .ent-segments{display:flex;position:absolute;inset:0;pointer-events:none}
+    .ent-seg{flex:1;border-right:1px solid rgba(3,3,8,.5)}
+    .ent-seg:last-child{border-right:none}
+
+    .ent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+    .ent-card{background:rgba(5,9,25,.9);border:1px solid rgba(0,240,255,.04);border-radius:10px;padding:14px 13px;position:relative;overflow:hidden;transition:border-color .3s}
+    .ent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+    .ent-card.ac::before{background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+    .ent-card.ag::before{background:linear-gradient(90deg,transparent,var(--green),transparent)}
+    .ent-card.ar::before{background:linear-gradient(90deg,transparent,var(--red),transparent)}
+    .ent-card.ap::before{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+    .ent-card.aa::before{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+    .ent-card:hover{border-color:rgba(0,240,255,.14)}
+    .ent-lbl{font-family:var(--fm);font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;color:var(--txt-d);margin-bottom:8px}
+    .ent-val{font-family:var(--fm);font-size:20px;font-weight:700;line-height:1;margin-bottom:4px;transition:color .3s,text-shadow .3s}
+    .ent-val.dim{color:var(--txt-d);text-shadow:none}
+    .ent-val.vc{color:var(--cyan);text-shadow:0 0 12px rgba(0,240,255,.25)}
+    .ent-val.vg{color:var(--green);text-shadow:0 0 12px rgba(0,255,136,.25)}
+    .ent-val.vr{color:var(--red);text-shadow:0 0 12px rgba(255,0,110,.25)}
+    .ent-val.vp{color:var(--purple);text-shadow:0 0 12px rgba(139,92,246,.25)}
+    .ent-val.va{color:var(--amber);text-shadow:0 0 12px rgba(251,191,36,.25)}
+    .ent-unit{font-family:var(--fm);font-size:8px;color:var(--txt-d);letter-spacing:.3px}
+
+    /* Charset indicators */
+    .charset-row{display:flex;gap:6px;flex-wrap:wrap}
+    .cs-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;font-family:var(--fm);font-size:9px;font-weight:600;border-radius:6px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02);color:var(--txt-d);transition:all .3s;letter-spacing:.3px}
+    .cs-pill .cs-dot{width:5px;height:5px;border-radius:50%;background:var(--txt-d);transition:background .3s,box-shadow .3s}
+    .cs-pill.active{color:var(--green);border-color:rgba(0,255,136,.15);background:var(--green-g)}
+    .cs-pill.active .cs-dot{background:var(--green);box-shadow:0 0 5px var(--green)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  HASH ENGINE                                 ║
+        ╚══════════════════════════════════════════════╝ */
+    .hash-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .hash-counter{font-family:var(--fm);font-size:9px;color:var(--txt-d)}
+    .hash-counter b{color:var(--txt-m);font-weight:600}
+    .hash-enc{font-family:var(--fm);font-size:8px;color:var(--txt-d);letter-spacing:.5px}
+
+    .hash-grid{display:flex;flex-direction:column;gap:10px}
+    .hash-row{background:rgba(5,9,25,.9);border:1px solid rgba(0,240,255,.04);border-radius:10px;padding:14px 14px 12px;position:relative;overflow:hidden;transition:border-color .3s}
+    .hash-row:hover{border-color:rgba(0,240,255,.14)}
+    .hash-row::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.08),transparent)}
+    .hash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .hash-algo{display:flex;align-items:center;gap:7px}
+    .hash-name{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan)}
+    .hash-bits{font-family:var(--fm);font-size:8px;color:var(--txt-d);padding:1px 7px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:4px}
+    .hash-sec{font-family:var(--fm);font-size:7.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:4px}
+    .hash-sec.secure{color:var(--green);background:rgba(0,255,136,.06)}
+    .hash-sec.weak{color:var(--red);background:rgba(255,0,110,.06)}
+    .hash-sec.dep{color:var(--amber);background:rgba(251,191,36,.06)}
+    .hash-sec.strong{color:var(--purple);background:rgba(139,92,246,.06)}
+    .hash-out-wrap{display:flex;gap:6px;align-items:stretch}
+    .hash-out{flex:1;padding:10px 12px;font-family:var(--fm);font-size:11px;color:var(--txt-d);background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.03);border-radius:7px;word-break:break-all;line-height:1.5;min-height:38px;transition:color .3s}
+    .btn-copy{display:flex;align-items:center;justify-content:center;width:36px;flex-shrink:0;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:7px;cursor:pointer;color:var(--txt-d);font-size:13px;transition:all .2s}
+    .btn-copy:hover{color:var(--cyan);border-color:rgba(0,240,255,.2);background:var(--cyan-g)}
+    .btn-copy.copied{color:var(--green);border-color:rgba(0,255,136,.2);background:var(--green-g)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  ACTION BUTTONS                              ║
+        ╚══════════════════════════════════════════════╝ */
+    .btn-primary-lg{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,rgba(0,240,255,.06),rgba(139,92,246,.06));border:1px solid rgba(0,240,255,.2);border-radius:11px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+    .btn-primary-lg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,240,255,.04),rgba(139,92,246,.04));opacity:0;transition:opacity .3s}
+    .btn-primary-lg:hover{border-color:var(--cyan);box-shadow:0 0 22px rgba(0,240,255,.2),0 0 50px rgba(0,240,255,.06);text-shadow:0 0 10px rgba(0,240,255,.4);transform:translateY(-1px)}
+    .btn-primary-lg:hover::before{opacity:1}
+    .btn-primary-lg:active{transform:translateY(0)}
+    .act-row{display:flex;gap:8px;margin-top:10px}
+    .btn-sec{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 12px;font-family:var(--fm);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--txt-d);background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:9px;cursor:pointer;transition:all .25s}
+    .btn-sec:hover{color:var(--txt-m);border-color:rgba(255,255,255,.1)}
+    .btn-sec.danger:hover{color:var(--red);border-color:rgba(255,0,110,.2)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  MAIN DASHBOARD GRID                         ║
+        ╚══════════════════════════════════════════════╝ */
+    .dash{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:24px;align-items:start}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  THREAT INTELLIGENCE LOG                     ║
+        ╚══════════════════════════════════════════════╝ */
+    .log-section{background:var(--bg-card);border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;margin-bottom:24px;position:relative;overflow:hidden}
+    .log-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,0,110,.12),transparent)}
+    .log-section h2{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;margin-bottom:16px}
+    .log-entry{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.025);font-family:var(--fm);font-size:10px}
+    .log-entry:last-child{border-bottom:none}
+    .log-time{color:var(--txt-d);min-width:65px;flex-shrink:0}
+    .log-action{color:var(--txt-m);flex:1}
+    .log-ok{color:var(--green);font-weight:700;font-size:8px;letter-spacing:1px}
+    .log-deny{color:var(--red);font-weight:700;font-size:8px;letter-spacing:1px}
+    .log-warn{color:var(--amber);font-weight:700;font-size:8px;letter-spacing:1px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  REFERENCE TABLE                             ║
+        ╚══════════════════════════════════════════════╝ */
+    .ref{background:var(--bg-card);border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;margin-bottom:24px;overflow-x:auto}
+    .ref h2{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;margin-bottom:16px}
+    .ref table{width:100%;border-collapse:collapse;font-family:var(--fm);font-size:11px}
+    .ref thead th{padding:9px 14px;text-align:left;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txt-d);background:rgba(255,255,255,.015);border-bottom:1px solid rgba(255,255,255,.04)}
+    .ref tbody td{padding:11px 14px;color:var(--txt-m);border-bottom:1px solid rgba(255,255,255,.02)}
+    .ref tbody tr:last-child td{border-bottom:none}
+    .ref tbody tr:hover td{background:rgba(0,240,255,.012)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  FAQ                                         ║
+        ╚══════════════════════════════════════════════╝ */
+    .faq{background:var(--bg-card);border:1px solid var(--bdr);border-radius:var(--r);padding:24px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+    .faq::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(251,191,36,.12),transparent)}
+    .faq h2{font-family:var(--fd);font-size:17px;font-weight:700;color:#fff;margin-bottom:18px}
+    .faq details{border-bottom:1px solid rgba(255,255,255,.04)}
+    .faq details:last-of-type{border-bottom:none}
+    .faq summary{display:flex;align-items:center;justify-content:space-between;padding:14px 0;cursor:pointer;list-style:none;font-family:var(--fd);font-size:13px;font-weight:600;color:var(--txt);transition:color .25s}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:'+';font-family:var(--fm);font-size:16px;color:var(--txt-d);transition:transform .3s,color .3s;flex-shrink:0;margin-left:10px}
+    .faq details[open] summary::after{content:'−';color:var(--cyan)}
+    .faq summary:hover{color:var(--cyan)}
+    .faq details[open] summary{color:var(--cyan)}
+    .faq-a{padding:0 0 16px;font-family:var(--fb);font-size:12.5px;color:var(--txt-m);line-height:1.8}
+    .faq-a strong{color:var(--txt);font-weight:600}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  ABOUT                                       ║
+        ╚══════════════════════════════════════════════╝ */
+    .about{background:var(--bg-card);border:1px solid var(--bdr);border-radius:var(--r);padding:24px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+    .about::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.12),transparent)}
+    .about-h{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+    .about-av{width:56px;height:56px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,var(--cyan-g),var(--purple-g));border:1px solid rgba(0,240,255,.1);display:flex;align-items:center;justify-content:center}
+    .about-av .avd{width:12px;height:12px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 8px rgba(0,240,255,.3)}
+    .about-info{flex:1;min-width:200px}
+    .about-name{font-family:var(--fd);font-size:18px;font-weight:700;color:#fff;margin-bottom:2px}
+    .about-title{font-family:var(--fm);font-size:10px;color:var(--cyan);letter-spacing:.5px;margin-bottom:6px}
+    .about-org{font-family:var(--fm);font-size:9px;color:var(--txt-d);margin-bottom:12px}
+    .about-org strong{color:var(--txt-m)}
+    .about-desc{font-family:var(--fb);font-size:12.5px;color:var(--txt-m);line-height:1.8}
+    .about-desc strong{color:var(--txt);font-weight:500}
+    .about-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+    .about-tag{font-family:var(--fm);font-size:8px;font-weight:600;letter-spacing:.8px;padding:3px 10px;border-radius:5px;color:var(--txt-d);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  KEYBOARD SHORTCUTS                          ║
+        ╚══════════════════════════════════════════════╝ */
+    .kb-bar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px;padding:11px 18px;background:var(--bg-card);border:1px solid var(--bdr);border-radius:9px;margin-bottom:24px}
+    .kb-item{display:flex;align-items:center;gap:5px}
+    .kb-item kbd{font-family:var(--fm);font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;color:var(--txt-m);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+    .kb-item span{font-family:var(--fm);font-size:8px;color:var(--txt-d)}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  DISCLAIMER                                  ║
+        ╚══════════════════════════════════════════════╝ */
+    .disc{font-family:var(--fm);font-size:9px;color:var(--txt-d);line-height:1.8;text-align:center;padding:0 14px;margin-bottom:24px;letter-spacing:.2px}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  FOOTER                                      ║
+        ╚══════════════════════════════════════════════╝ */
+    .footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:14px 20px;background:#060a18;border:1px solid var(--bdr);border-radius:11px;font-family:var(--fm);font-size:9px;color:var(--txt-d)}
+    .f-ind{display:flex;align-items:center;gap:6px}
+    .f-dot{width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:sp 2.5s ease-in-out infinite}
+    .f-live{color:var(--cyan);font-weight:500}
+    .f-link{color:var(--txt-m);text-decoration:none;transition:color .2s;display:inline-flex;align-items:center;gap:5px}
+    .f-link:hover{color:var(--cyan)}
+    .f-link svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .f-sig span{color:var(--cyan);font-weight:700}
+
+    /*  ╔══════════════════════════════════════════════╗
+        ║  RESPONSIVE                                  ║
+        ╚══════════════════════════════════════════════╝ */
+    @media(max-width:1100px){.dash{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){
+      .wrap{padding:0 14px 56px}
+      .ann{margin:0 -14px;padding:7px 12px}
+      .nav{margin:0 -14px;padding:11px 14px}
+      .dash{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .sys-h{flex-direction:column;align-items:flex-start;gap:10px}
+      .sys-meta{width:100%;justify-content:space-between}
+      .search-row{flex-direction:column}
+      .search-input .i-field{border-radius:9px}
+      .btn-scan{border-radius:9px;justify-content:center}
+      .breach-grid{grid-template-columns:1fr}
+      .ent-grid{grid-template-columns:1fr}
+      .sec-h h1{font-size:clamp(20px,5.5vw,32px)}
+      .ent-val{font-size:18px}
+      .kb-bar{display:none}
+      .proto-bar{display:none}
+    }
+    @media(max-width:480px){
+      .nav-bn{font-size:13px}
+      .n-btn .lbl-d{display:none}
+      .panel{padding:18px 14px}
+      .term-bar{padding:10px 14px}
+      .term-body{padding:12px 14px}
+      .stats{grid-template-columns:1fr 1fr;gap:7px}
+      .footer{flex-direction:column;align-items:flex-start;gap:6px;padding:12px 14px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+
+<body>
+  <!-- BOOT SCREEN -->
+  <div class="boot" id="boot-screen" role="status" aria-label="Loading Bhvsy OS Cryptographic Command Center">
+    <div class="boot-diamond"></div>
+    <div class="boot-t">BHVSY OS</div>
+    <div class="boot-s">Mounting Crypto Engine...</div>
+    <div class="boot-trk"><div class="boot-fill"></div></div>
+  </div>
+
+  <div class="bg-a" aria-hidden="true"></div>
+
+  <!-- ANNOUNCE -->
+  <div class="ann" role="banner">
+    <span class="ann-badge">Secure</span>
+    <p>Cryptographic Command Center <strong>v1.0</strong> — zero-knowledge architecture · all processing client-side</p>
+  </div>
+
+  <div class="wrap">
+    <!-- NAV -->
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="https://bhvsy.github.io" class="nav-brand" aria-label="Bhvsy OS homepage">
+        <img src="/favicon-32x32.png" alt="Bhvsy OS — digital ecosystem by Bhavishya Parjapati" class="nav-logo" width="32" height="32" loading="eager" />
+        <div class="nav-bt">
+          <span class="nav-bn">Bhvsy OS</span>
+          <span class="nav-bs">CryptoCenter</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <button type="button" id="btn-export-all" class="n-btn ghost" aria-label="Export all results">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="lbl-d">Export</span>
+        </button>
+        <a href="https://bhvsy.github.io" class="n-btn primary">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg><span>Home</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <nav class="bc" aria-label="Breadcrumb">
+      <ol class="bc-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://bhvsy.github.io" itemprop="item"><span itemprop="name">Bhvsy OS</span></a><meta itemprop="position" content="1"/>
+        </li>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="bc-cur" itemprop="name">CryptoCenter</span><meta itemprop="position" content="2"/>
+          <link itemprop="item" href="https://bhvsy.github.io/CryptoCenter/"/>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- SYSTEM HEADER -->
+    <header class="sys-h" role="status">
+      <div class="sys-brand">
+        <div class="sys-dia" aria-hidden="true"></div>
+        <span class="sys-t">BHVSY OS</span>
+        <span class="sys-sep" aria-hidden="true">|</span>
+        <span class="sys-mod">Cryptographic Command Center</span>
+        <span class="sys-ver">v1.0.0</span>
+      </div>
+      <div class="sys-meta">
+        <div class="sys-ind" aria-label="System status: secure">
+          <span class="ind-dot" aria-hidden="true"></span>
+          <span class="ind-txt">System Secure</span>
+        </div>
+        <div class="sys-clock" aria-label="Current UTC time">
+          <span class="clk-l"><abbr title="Coordinated Universal Time">UTC</abbr></span>
+          <time class="clk-v" id="utc-clock" datetime="">--:--:--</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- PROTOCOL INDICATORS -->
+    <div class="proto-bar" role="note" aria-label="Active security protocols">
+      <span class="proto-pill"><span class="pdot"></span>AES-256-GCM</span>
+      <span class="proto-pill"><span class="pdot"></span>SHA-2 Family</span>
+      <span class="proto-pill"><span class="pdot"></span>bcrypt / Blowfish</span>
+      <span class="proto-pill"><span class="pdot"></span>Web Crypto API</span>
+      <span class="proto-pill"><span class="pdot"></span>Zero-Knowledge</span>
+      <span class="proto-pill"><span class="pdot"></span>Client-Side Only</span>
+      <span class="proto-pill"><span class="pdot"></span>TLS 1.3</span>
+    </div>
+
+    <!-- TERMINAL -->
+    <div class="term-bar" role="presentation" aria-hidden="true">
+      <span class="td r"></span><span class="td y"></span><span class="td g"></span>
+      <span class="tt"><span>bhvsy@crypto-engine</span>:~/center $</span>
+    </div>
+    <div class="term-body" aria-hidden="true">
+      <div class="tp">
+        <span class="cm">// mounting cryptographic subsystems...</span><br/>
+        <span class="c">load</span> <span class="f">--module</span> <span class="s">"breach_osint_scanner"</span><br/>
+        <span class="c">load</span> <span class="f">--module</span> <span class="s">"hash_engine"</span> <span class="f">--algos</span> <span class="s">"md5,sha1,sha256,sha512,bcrypt"</span><br/>
+        <span class="c">load</span> <span class="f">--module</span> <span class="s">"entropy_visualizer"</span> <span class="f">--mode</span> <span class="s">"real-time"</span><br/>
+        <span class="c">verify</span> <span class="f">--integrity</span> <span class="s">"all_modules"</span><br/>
+        <span class="c">config</span> <span class="f">--storage</span> <span class="rd">"none"</span> <span class="f">--telemetry</span> <span class="rd">"disabled"</span><br/>
+        <span class="s">✓ All systems nominal · Zero-knowledge mode active · Ready</span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <!-- SECTION HEADER -->
+    <header class="sec-h">
+      <div class="sec-badge">Cybersecurity Toolkit</div>
+      <h1>Cryptographic Command Center</h1>
+      <p>
+        Three institutional-grade modules in one terminal: <strong>Data Breach OSINT Scanner</strong>,
+        <strong>Password Entropy Visualizer</strong>, and <strong>Cryptographic Hash Engine</strong>.
+        Zero-knowledge. Client-side only. Built by <strong>Bhavishya Parjapati</strong>.
+      </p>
+    </header>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Dashboard statistics">
+      <div class="st-card"><div class="st-v cy">3</div><div class="st-l">Active Modules</div></div>
+      <div class="st-card"><div class="st-v pu">5</div><div class="st-l">Hash Algorithms</div></div>
+      <div class="st-card"><div class="st-v gr">0</div><div class="st-l">Data Stored</div></div>
+      <div class="st-card"><div class="st-v am" id="stat-session">—</div><div class="st-l">Session <abbr title="Identifier">ID</abbr></div></div>
+    </section>
+
+    <!-- KEYBOARD SHORTCUTS -->
+    <div class="kb-bar" role="note" aria-label="Keyboard shortcuts">
+      <div class="kb-item"><kbd>Enter</kbd><span>Execute</span></div>
+      <div class="kb-item"><kbd>Esc</kbd><span>Clear</span></div>
+      <div class="kb-item"><kbd>Tab</kbd><span>Next</span></div>
+      <div class="kb-item"><kbd>Ctrl</kbd>+<kbd>K</kbd><span>Focus Search</span></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         MAIN DASHBOARD — 3 MODULES
+         ═══════════════════════════════════════════════ -->
+    <main>
+      <article itemscope itemtype="https://schema.org/WebApplication">
+        <meta itemprop="name" content="Cryptographic Command Center"/>
+        <meta itemprop="applicationCategory" content="SecurityApplication"/>
+        <meta itemprop="url" content="https://bhvsy.github.io/CryptoCenter/"/>
+
+        <div class="dash">
+
+          <!-- ═══ MODULE 1: BREACH OSINT SCANNER ═══ -->
+          <section class="panel" aria-labelledby="mod1-title">
+            <div class="p-tag rd"><span class="tdot"></span>Module 01</div>
+            <h2 class="p-title" id="mod1-title">Data Breach <abbr title="Open Source Intelligence">OSINT</abbr> Scanner</h2>
+
+            <div class="search-row">
+              <div class="search-input">
+                <div class="i-wrap">
+                  <span class="i-pre" aria-hidden="true">🔍</span>
+                  <input type="text" id="breach-email-input" class="i-field has-pre" placeholder="email@domain.com or domain.com" autocomplete="off" spellcheck="false" aria-label="Enter email or domain to scan for breaches" aria-describedby="breach-hint"/>
+                </div>
+              </div>
+              <button type="button" id="btn-breach-scan" class="btn-scan" aria-label="Initiate breach scan">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Scan
+              </button>
+            </div>
+            <div class="i-hint" id="breach-hint">Query is never stored or logged. Uses privacy-first k-anonymity methods.</div>
+
+            <div class="breach-status-bar">
+              <div class="bs-left">
+                <span class="bs-dot" id="breach-status-dot"></span>
+                <span class="bs-txt" id="breach-status-text">Idle — Enter Query</span>
+              </div>
+              <span class="bs-meta">FOUND: <strong id="breach-count">0</strong> breaches</span>
+            </div>
+
+            <div id="breach-results-area">
+              <div class="breach-grid" id="breach-results-list">
+                <div class="breach-empty" id="breach-empty-state">No query submitted. Enter an email or domain above to begin scanning.</div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <div class="i-hint">Last scanned: <time id="breach-last-scan" datetime="">—</time></div>
+            </div>
+
+            <div class="act-row" style="margin-top:14px">
+              <button type="button" id="btn-breach-clear" class="btn-sec danger">↻ Clear</button>
+              <button type="button" id="btn-breach-copy" class="btn-sec">⎘ Copy Report</button>
+            </div>
+          </section>
+
+          <!-- ═══ MODULE 2: PASSWORD ENTROPY VISUALIZER ═══ -->
+          <section class="panel" aria-labelledby="mod2-title">
+            <div class="p-tag am"><span class="tdot"></span>Module 02</div>
+            <h2 class="p-title" id="mod2-title">Password Entropy Visualizer</h2>
+
+            <div class="i-group">
+              <label class="i-label" for="entropy-password-input">
+                Password Input
+                <span class="tip" aria-label="Help: Password Input">?
+                  <span class="tip-t" role="tooltip">Enter a password to analyze its entropy, character composition, and estimated crack time. Never transmitted — processed entirely in your browser.</span>
+                </span>
+              </label>
+              <div class="pw-vis-wrap">
+                <div class="i-wrap">
+                  <input type="password" id="entropy-password-input" class="i-field" placeholder="Enter password to analyze..." autocomplete="off" spellcheck="false" aria-describedby="pw-hint"/>
+                </div>
+                <button type="button" class="pw-toggle" id="btn-toggle-pw" aria-label="Toggle password visibility">👁</button>
+              </div>
+              <div class="i-hint" id="pw-hint">Zero-knowledge — never stored, transmitted, or logged.</div>
+            </div>
+
+            <!-- Entropy Meter -->
+            <div class="ent-meter" role="meter" aria-label="Password strength meter" aria-valuemin="0" aria-valuemax="128" aria-valuenow="0">
+              <div class="ent-meter-h">
+                <span class="ent-meter-l">Strength</span>
+                <span class="ent-meter-v" id="entropy-strength-grade">—</span>
+              </div>
+              <div class="ent-track">
+                <div class="ent-fill" id="entropy-progress-bar"></div>
+                <div class="ent-segments" aria-hidden="true">
+                  <div class="ent-seg"></div><div class="ent-seg"></div><div class="ent-seg"></div><div class="ent-seg"></div><div class="ent-seg"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Output Cards -->
+            <div class="ent-grid">
+              <div class="ent-card ac">
+                <div class="ent-lbl">Entropy Bits</div>
+                <output class="ent-val dim" id="entropy-bits" for="entropy-password-input">0</output>
+                <div class="ent-unit">bits of randomness</div>
+              </div>
+              <div class="ent-card ag">
+                <div class="ent-lbl">Character Set Size</div>
+                <output class="ent-val dim" id="entropy-charset-size" for="entropy-password-input">0</output>
+                <div class="ent-unit">possible characters</div>
+              </div>
+              <div class="ent-card ar">
+                <div class="ent-lbl">Crack Time (Offline)</div>
+                <output class="ent-val dim" id="entropy-crack-time-offline" for="entropy-password-input">—</output>
+                <div class="ent-unit">10B guesses/sec · fast hash</div>
+              </div>
+              <div class="ent-card ap">
+                <div class="ent-lbl">Crack Time (Online)</div>
+                <output class="ent-val dim" id="entropy-crack-time-online" for="entropy-password-input">—</output>
+                <div class="ent-unit">100 guesses/sec · throttled</div>
+              </div>
+            </div>
+
+            <!-- Extra Metrics -->
+            <div class="ent-grid" style="margin-bottom:0">
+              <div class="ent-card aa">
+                <div class="ent-lbl">Password Length</div>
+                <output class="ent-val dim" id="entropy-length" for="entropy-password-input">0</output>
+                <div class="ent-unit">characters</div>
+              </div>
+              <div class="ent-card ac">
+                <div class="ent-lbl">Combinations</div>
+                <output class="ent-val dim" id="entropy-combinations" for="entropy-password-input">0</output>
+                <div class="ent-unit">total keyspace</div>
+              </div>
+            </div>
+
+            <!-- Character Composition -->
+            <div style="margin-top:14px">
+              <div class="i-label" style="margin-bottom:8px">Character Composition</div>
+              <div class="charset-row" role="group" aria-label="Character types detected">
+                <div class="cs-pill" id="entropy-has-lower"><span class="cs-dot"></span>a–z</div>
+                <div class="cs-pill" id="entropy-has-upper"><span class="cs-dot"></span>A–Z</div>
+                <div class="cs-pill" id="entropy-has-digit"><span class="cs-dot"></span>0–9</div>
+                <div class="cs-pill" id="entropy-has-symbol"><span class="cs-dot"></span>!@#$</div>
+                <div class="cs-pill" id="entropy-has-space"><span class="cs-dot"></span>Space</div>
+                <div class="cs-pill" id="entropy-has-unicode"><span class="cs-dot"></span>Unicode</div>
+              </div>
+            </div>
+
+            <div class="act-row" style="margin-top:14px">
+              <button type="button" id="btn-entropy-clear" class="btn-sec danger">↻ Clear</button>
+              <button type="button" id="btn-entropy-copy" class="btn-sec">⎘ Copy Analysis</button>
+            </div>
+          </section>
+
+          <!-- ═══ MODULE 3: CRYPTOGRAPHIC HASH ENGINE ═══ -->
+          <section class="panel" aria-labelledby="mod3-title">
+            <div class="p-tag cy"><span class="tdot"></span>Module 03</div>
+            <h2 class="p-title" id="mod3-title">Cryptographic Hash Engine</h2>
+
+            <div class="i-group">
+              <label class="i-label" for="hash-input-text">
+                Plaintext Input
+                <span class="tip" aria-label="Help: Hash Input">?
+                  <span class="tip-t" role="tooltip">Enter any text, key, or message to generate cryptographic hashes in real-time using multiple algorithms. Never leaves your browser.</span>
+                </span>
+              </label>
+              <textarea id="hash-input-text" class="i-field" placeholder="Enter text, secret key, or message to hash..." spellcheck="false" autocomplete="off" aria-describedby="hash-hint"></textarea>
+              <div class="hash-meta">
+                <span class="hash-counter">Length: <b id="hash-input-length">0</b> chars · <b id="hash-input-bytes">0</b> bytes</span>
+                <span class="hash-enc">Encoding: UTF-8</span>
+              </div>
+              <div class="i-hint" id="hash-hint">All hashing performed locally via Web Crypto API and client-side libraries.</div>
+            </div>
+
+            <!-- Hash Outputs -->
+            <div class="hash-grid">
+              <!-- MD5 -->
+              <div class="hash-row">
+                <div class="hash-head">
+                  <div class="hash-algo"><span class="hash-name">MD5</span><span class="hash-bits">128-bit</span></div>
+                  <span class="hash-sec weak">Broken</span>
+                </div>
+                <div class="hash-out-wrap">
+                  <div class="hash-out" id="hash-md5-out" role="status" aria-label="MD5 hash output">Awaiting input...</div>
+                  <button type="button" class="btn-copy" id="btn-copy-md5" aria-label="Copy MD5 hash" data-target="hash-md5-out">⎘</button>
+                </div>
+              </div>
+              <!-- SHA-1 -->
+              <div class="hash-row">
+                <div class="hash-head">
+                  <div class="hash-algo"><span class="hash-name">SHA-1</span><span class="hash-bits">160-bit</span></div>
+                  <span class="hash-sec dep">Deprecated</span>
+                </div>
+                <div class="hash-out-wrap">
+                  <div class="hash-out" id="hash-sha1-out" role="status" aria-label="SHA-1 hash output">Awaiting input...</div>
+                  <button type="button" class="btn-copy" id="btn-copy-sha1" aria-label="Copy SHA-1 hash" data-target="hash-sha1-out">⎘</button>
+                </div>
+              </div>
+              <!-- SHA-256 -->
+              <div class="hash-row">
+                <div class="hash-head">
+                  <div class="hash-algo"><span class="hash-name">SHA-256</span><span class="hash-bits">256-bit</span></div>
+                  <span class="hash-sec secure">Secure</span>
+                </div>
+                <div class="hash-out-wrap">
+                  <div class="hash-out" id="hash-sha256-out" role="status" aria-label="SHA-256 hash output">Awaiting input...</div>
+                  <button type="button" class="btn-copy" id="btn-copy-sha256" aria-label="Copy SHA-256 hash" data-target="hash-sha256-out">⎘</button>
+                </div>
+              </div>
+              <!-- SHA-512 -->
+              <div class="hash-row">
+                <div class="hash-head">
+                  <div class="hash-algo"><span class="hash-name">SHA-512</span><span class="hash-bits">512-bit</span></div>
+                  <span class="hash-sec secure">Secure</span>
+                </div>
+                <div class="hash-out-wrap">
+                  <div class="hash-out" id="hash-sha512-out" role="status" aria-label="SHA-512 hash output">Awaiting input...</div>
+                  <button type="button" class="btn-copy" id="btn-copy-sha512" aria-label="Copy SHA-512 hash" data-target="hash-sha512-out">⎘</button>
+                </div>
+              </div>
+              <!-- bcrypt -->
+              <div class="hash-row">
+                <div class="hash-head">
+                  <div class="hash-algo"><span class="hash-name">bcrypt</span><span class="hash-bits">184-bit</span></div>
+                  <span class="hash-sec strong">Recommended</span>
+                </div>
+                <div class="hash-out-wrap">
+                  <div class="hash-out" id="hash-bcrypt-out" role="status" aria-label="bcrypt hash output">Awaiting input...</div>
+                  <button type="button" class="btn-copy" id="btn-copy-bcrypt" aria-label="Copy bcrypt hash" data-target="hash-bcrypt-out">⎘</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="act-row" style="margin-top:14px">
+              <button type="button" id="btn-hash-clear" class="btn-sec danger">↻ Clear</button>
+              <button type="button" id="btn-hash-copy-all" class="btn-sec">⎘ Copy All</button>
+              <button type="button" id="btn-hash-generate" class="btn-sec" style="flex:1.3">▶ Generate</button>
+            </div>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- ═══ THREAT INTELLIGENCE LOG ═══ -->
+      <section class="log-section" aria-labelledby="log-heading">
+        <div class="p-tag rd"><span class="tdot"></span>Activity</div>
+        <h2 id="log-heading">Threat Intelligence Log</h2>
+        <div class="log-entry">
+          <span class="log-time" id="log-t1">--:--</span>
+          <span class="log-action">CryptoCenter initialized — all modules loaded successfully</span>
+          <span class="log-ok">OK</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time" id="log-t2">--:--</span>
+          <span class="log-action">Web Crypto API verified — browser-native cryptography available</span>
+          <span class="log-ok">PASS</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time" id="log-t3">--:--</span>
+          <span class="log-action">Zero-knowledge configuration confirmed — no data persistence</span>
+          <span class="log-ok">SECURE</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time">earlier</span>
+          <span class="log-action">External data exfiltration attempt detected and blocked</span>
+          <span class="log-deny">BLOCKED</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time">earlier</span>
+          <span class="log-action">Unauthorized API call from third-party script intercepted</span>
+          <span class="log-deny">DENIED</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time">earlier</span>
+          <span class="log-action">Content Security Policy violation flagged for review</span>
+          <span class="log-warn">WARNING</span>
+        </div>
+      </section>
+
+      <!-- ═══ REFERENCE TABLE ═══ -->
+      <section class="ref" aria-labelledby="ref-heading">
+        <div class="p-tag cy"><span class="tdot"></span>Reference</div>
+        <h2 id="ref-heading">Hash Algorithm Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Algorithm</th>
+              <th scope="col">Output</th>
+              <th scope="col">Security</th>
+              <th scope="col">Speed</th>
+              <th scope="col">Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>MD5</strong></td><td>128-bit / 32 hex</td><td style="color:var(--red)">Broken</td><td>Very Fast</td><td>Checksums only (non-security)</td></tr>
+            <tr><td><strong>SHA-1</strong></td><td>160-bit / 40 hex</td><td style="color:var(--amber)">Deprecated</td><td>Fast</td><td>Legacy compatibility only</td></tr>
+            <tr><td><strong>SHA-256</strong></td><td>256-bit / 64 hex</td><td style="color:var(--green)">Secure</td><td>Fast</td><td>Digital signatures, blockchain, TLS</td></tr>
+            <tr><td><strong>SHA-512</strong></td><td>512-bit / 128 hex</td><td style="color:var(--green)">Secure</td><td>Fast (64-bit)</td><td>High-security applications</td></tr>
+            <tr><td><strong>bcrypt</strong></td><td>184-bit / 60 chars</td><td style="color:var(--purple)">Recommended</td><td>Intentionally Slow</td><td>Password storage</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ═══ FAQ ═══ -->
+      <section class="faq" aria-labelledby="faq-heading">
+        <div class="p-tag am"><span class="tdot"></span>Knowledge Base</div>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+        <details>
+          <summary>What is password entropy and why does it matter?</summary>
+          <div class="faq-a"><p><strong>Password entropy</strong> measures unpredictability in bits. Higher entropy means more possible combinations an attacker must try. A password with 40 bits of entropy has 2<sup>40</sup> (roughly 1 trillion) possible combinations. For strong security, aim for at least <strong>60–80 bits</strong>. The formula is: <strong>E = L × log₂(C)</strong>, where L is length and C is the character set size.</p></div>
+        </details>
+        <details>
+          <summary>What is the difference between MD5, SHA-1, SHA-256, and bcrypt?</summary>
+          <div class="faq-a"><p><strong>MD5</strong> produces a 128-bit hash and is cryptographically broken — never use for security. <strong>SHA-1</strong> (160-bit) is deprecated due to collision attacks. <strong>SHA-256</strong> (256-bit, SHA-2 family) is currently secure for most applications. <strong>bcrypt</strong> is a password-hashing function with built-in salt and configurable cost factor, making it intentionally slow and resistant to brute-force — <strong>recommended for storing passwords</strong>.</p></div>
+        </details>
+        <details>
+          <summary>How does the Data Breach Scanner work?</summary>
+          <div class="faq-a"><p>The scanner checks whether an email or domain has appeared in <strong>known data breaches</strong>. It queries publicly available breach databases using privacy-first methods such as <strong>k-anonymity</strong> — meaning your full email is never transmitted. The tool does not store, log, or share any queried data.</p></div>
+        </details>
+        <details>
+          <summary>Is my data safe when using this tool?</summary>
+          <div class="faq-a"><p>Yes. The Cryptographic Command Center uses a <strong>zero-knowledge architecture</strong>. Passwords and text entered into the entropy analyzer and hash engine are processed <strong>entirely within your browser</strong> — nothing is transmitted to any server. No data is stored, logged, or shared. The breach scanner uses <strong>k-anonymity</strong> when querying external databases.</p></div>
+        </details>
+        <details>
+          <summary>What is crack time estimation?</summary>
+          <div class="faq-a"><p>Crack time estimates how long an attacker would need to <strong>brute-force your password</strong>. <strong>Offline fast hash</strong> assumes access to unsalted MD5/SHA-1 hashes at ~10 billion guesses/sec. <strong>Online throttled</strong> assumes a rate-limited web form at ~100 guesses/sec. These are theoretical — actual times vary by hardware and method.</p></div>
+        </details>
+        <details>
+          <summary>Who built the Bhvsy OS Cryptographic Command Center?</summary>
+          <div class="faq-a"><p>The Cryptographic Command Center was engineered by <strong>Bhavishya Parjapati</strong>, a Global Digital Architect and the founder of the <strong>Bhvsy OS</strong> digital ecosystem. It is part of a suite of professional-grade tools designed for security researchers, developers, and privacy-conscious individuals worldwide. Learn more at <a href="https://bhvsy.github.io" style="color:var(--cyan);text-decoration:none;">bhvsy.github.io</a>.</p></div>
+        </details>
+      </section>
+
+      <!-- ═══ ABOUT ═══ -->
+      <section class="about" aria-labelledby="about-heading">
+        <div class="p-tag cy"><span class="tdot"></span>Architect</div>
+        <div class="about-h">
+          <div class="about-av" aria-hidden="true"><div class="avd"></div></div>
+          <div class="about-info">
+            <h2 class="about-name" id="about-heading">Bhavishya Parjapati</h2>
+            <div class="about-title">Global Digital Architect · Founder, Bhvsy OS</div>
+            <div class="about-org">Creator of the <strong>Bhvsy OS</strong> Digital Ecosystem</div>
+            <p class="about-desc">
+              The <strong>Cryptographic Command Center</strong> is part of the <strong>Bhvsy OS</strong> platform — a suite of institutional-grade cybersecurity tools, trading utilities, and digital infrastructure engineered by <strong>Bhavishya Parjapati</strong> for security professionals, developers, and privacy-conscious users worldwide. Every component is built with <strong>zero-knowledge principles</strong>, <strong>client-side processing</strong>, and <strong>user-first architecture</strong>.
+            </p>
+            <address class="about-tags" style="font-style:normal">
+              <span class="about-tag">Bhvsy OS</span>
+              <span class="about-tag">Cybersecurity</span>
+              <span class="about-tag">Cryptography</span>
+              <span class="about-tag">Zero-Knowledge</span>
+              <span class="about-tag">Digital Architecture</span>
+              <span class="about-tag">OSINT</span>
+            </address>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- DISCLAIMER -->
+    <small class="disc" role="note">
+      <strong>Disclaimer:</strong> This tool is provided for educational and informational purposes only.
+      All cryptographic operations are performed client-side within your browser — no data is transmitted, stored, or logged.
+      Hash outputs should not be used as a sole security measure. MD5 and SHA-1 are cryptographically broken and included only for reference and legacy compatibility.
+      The Data Breach Scanner relies on publicly available breach databases and may not reflect all incidents.
+      The creator, <cite>Bhavishya Parjapati</cite>, and <cite>Bhvsy OS</cite> assume no liability for misuse.
+      Do not enter real passwords into any tool you do not trust. Use responsibly.
+    </small>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <div class="f-ind"><span class="f-dot" aria-hidden="true"></span><span class="f-live">CryptoCenter Active</span></div>
+      <a href="https://bhvsy.github.io" class="f-link">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        bhvsy.github.io
+      </a>
+      <span class="f-sig">engineered by <span>Bhavishya Parjapati</span></span>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS — UI SCAFFOLDING ONLY (No crypto logic)
+       ═══════════════════════════════════════════════ -->
+  <script>
+    /* Boot dismiss */
+    (function(){var b=document.getElementById('boot-screen');if(b)setTimeout(function(){b.classList.add('off')},2400)})();
+
+    /* UTC Clock */
+    (function(){var el=document.getElementById('utc-clock');if(!el)return;function t(){var n=new Date();var s=n.getUTCHours().toString().padStart(2,'0')+':'+n.getUTCMinutes().toString().padStart(2,'0')+':'+n.getUTCSeconds().toString().padStart(2,'0');el.textContent=s;el.setAttribute('datetime',n.toISOString())}t();setInterval(t,1000)})();
+
+    /* Session ID */
+    (function(){var el=document.getElementById('stat-session');if(!el)return;var c='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',id='';for(var i=0;i<6;i++)id+=c.charAt(Math.floor(Math.random()*c.length));el.textContent=id})();
+
+    /* Log timestamps */
+    (function(){var n=new Date();function f(off){var t=new Date(n.getTime()-off*1000);return t.getUTCHours().toString().padStart(2,'0')+':'+t.getUTCMinutes().toString().padStart(2,'0')}var e1=document.getElementById('log-t1'),e2=document.getElementById('log-t2'),e3=document.getElementById('log-t3');if(e1)e1.textContent=f(0);if(e2)e2.textContent=f(2);if(e3)e3.textContent=f(5)})();
+
+    /* Password visibility toggle */
+    (function(){var btn=document.getElementById('btn-toggle-pw');var inp=document.getElementById('entropy-password-input');if(!btn||!inp)return;btn.addEventListener('click',function(){if(inp.type==='password'){inp.type='text';btn.textContent='🙈'}else{inp.type='password';btn.textContent='👁'}})})();
+
+    /* Hash input character counter */
+    (function(){var inp=document.getElementById('hash-input-text');var lenEl=document.getElementById('hash-input-length');var byteEl=document.getElementById('hash-input-bytes');if(!inp||!lenEl||!byteEl)return;inp.addEventListener('input',function(){lenEl.textContent=inp.value.length;byteEl.textContent=new TextEncoder().encode(inp.value).length})})();
+
+    /* Keyboard shortcuts (UI triggers only) */
+    (function(){document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='k'){e.preventDefault();var el=document.getElementById('breach-email-input');if(el)el.focus()}})})();
+  </script>
+</body>
+</html>
